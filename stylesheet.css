@@ -1,0 +1,73 @@
+*:focus {
+  outline: none;
+}
+
+body {
+  background-color: #DCFCF5;
+  background-image: url(https://www.pinterest.com.au/pin/340866265524061892/) ;
+}
+
+.container {
+	display: center;
+	position: relative;
+	top: 0px;
+    left: 350px;
+    width: 775px;
+    height: 605px;
+}
+
+.nameField {
+	position: absolute; 
+	top: 80px;
+	
+}
+
+.textField {
+	display: left;
+	position: absolute;
+	top: 50px;
+	background-color: white;
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px #F2FBFE;
+	background: white;
+	margin-top: 100px;
+	overflow: auto;
+	background-color: #F2FBFE;
+	/*text-shadow: 1px 1px 1px;*/
+	font-family: 'Montserrat', sans-serif;
+	padding: 10px 20px 10px 20px;
+	border-radius: 15px;
+}
+
+.saveName {
+
+}
+
+.saveSnippet {
+
+}
+
+.setName {
+
+}
+
+.displayAll {
+	position: absolute;
+	display: center;
+	top : 110px;
+}
+
+.debug {
+	display: right;
+	position: absolute;
+	top: 50px;
+}
+
+.getAll {
+	display: right;
+	position: absolute;
+	top: 600px;
+
+}

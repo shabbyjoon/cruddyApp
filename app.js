@@ -1,50 +1,54 @@
 $(document).ready(function(){
   var nameFieldValue;
   var textFieldValue;
-   
-   var mySnippets = {
-	  	'myNameTextData' : nameFieldValue,
-	    'myFormTextData' : textFieldValue
-	    }
+  localStorage.clear();
 
   $('.setForm').on('click', function(){
-  	let textFieldValue = $('.textField').val();
-  	$('.debug').text(textFieldValue);
+  	  var obj = new Object();
+  	  let nameFieldValue = $('.nameField').val();
+  	  obj.name = nameFieldValue;
+  	  let textFieldValue = $('.textField').val();
+  	  obj.content = textFieldValue;
+  	  var str = JSON.stringify(obj);
+  	  $('.debug').text(textFieldValue);
+  	  console.log(str);
+  	  console.log(nameFieldValue);
+  	localStorage.setItem(obj.name, str);
 
-  	localStorage.setItem('myFormTextData', textFieldValue);
-
-  });
-
-   $('.setName').on('click', function(){
-   	let nameFieldValue = $('.nameField').val();
-   	var mySnippets = {
-	 	'myNameTextData' : nameFieldValue,
-		'myFormTextData' : textFieldValue
-	 }
-   	$('.debug').text(nameFieldValue);
-
-  console.log(nameFieldValue);
-   	localStorage.setItem('myNameTextData', nameFieldValue);
-
-  	
   });
 
   $('.getForm').on('click', function(){
-  	let retrieveData = localStorage.getItem('myFormTextData');
+  	  let name = localStorage.key(localStorage.length-1);
+  	  let content = localStorage.getItem(name);
+  	  let snippet = JSON.parse(content);
+  	  let retrieveData = snippet['name'] + " " + snippet['content'];
   	$('.debug').text(retrieveData);
-  });
 
-  $('.getName').on('click', function(){
-  	let retrieveData = localStorage.getItem('myNameTextData');
-  	$('.debug').text(retrieveData);
-  });
+    });
 
     $('.displayAll').on('click', function(){
-    let retrieveName =localStorage.getItem('myNameTextData');
-    let retrieveForm = localStorage.getItem('myFormTextData')
-    $('.debug').text(retrieveName);
-    $('.getAll').text(retrieveForm);
+      var retrieveData = '';
+        for(var i =0; i < localStorage.length; i++){
+          let name = localStorage.key(i);
+          let content = localStorage.getItem(name);
+  	      let snippet = JSON.parse(content);
+  	      retrieveData += snippet['name'] + "  " + snippet['content'] + ", ";
+        }
+      $('.debug').text(retrieveData);
+      $('.getAll').text(retrieveForm);
   });
+
+  $('.search').on('click', function(){
+  	let storedVal = localStorage.getItem($('.nameField').val());
+  	let snippet = JSON.parse(storedVal);
+  	$('.debug').text(snippet.content);
+
+  })
+
+  $('.reset').on('click', function(){
+  	localStorage.clear();
+  	$('.debug').text('');
+  })
   // $('.textField').on('keyup', function(){
   // 	let textFieldValue = $('.textField').val();
   // 	$('.debug').text(textFieldValue);

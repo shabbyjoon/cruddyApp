@@ -11,19 +11,42 @@
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
 <body>
-	<div class="container"> SnippetStore!
-  <form> 
-    <input class="nameField" type="text" name="firstInputField"></input>
-    <textarea class="textField" rows="40" cols="40" name="firstInputField">Type in your snippet!</textarea>
-  </form>
-  <button class="setName"> Save Name</button>
-  <button class="setForm"> Save Snippet</button>
-  <button class="getForm"> Get Snippet</button>
-  <button class="getName"> Get Name</button>
-  <button class="displayAll"> Display all</button>
-  </div>
+	<div class="container">
+	<div class=header>
+		<h1>The Snippet Store</h1>
+		<p>A place to store your snippets.</p>
+			</div>
 
-  <div class="debug"></div>
+
+	<!-- <div class="container"> -->
+  <!-- <form>  -->
+  	<div class="row">
+   	  <div class="side">	
+   	     <input class="nameField" type="text" name="firstInputField" placeholder="Your snippet name goes here!"></input>  
+	
+   		<button class="setForm"> Save Snippet</button>
+ 		<button class="getForm"> Get Snippet</button>
+ 		<button class="displayAll"> Display all</button>
+ 		<button class="search"> Search Snippets</button>
+  		<button class="reset"> Clear Storage</button>
+  	 </div>
+
+
+      <div class="main">    
+        <textarea class="textField" rows="40" cols="40" name="firstInputField" placeholder="Type in your snippet!"></textarea>
+	  </div>
+	
+    </div>
+<!-- </form> -->
+  <!-- </div> -->
+
+
+</div>
+<div class="output"></div>
+          <div class="debug"> </div>
+          <div class='getAll'></div>
   <div class='getAll'></div>
+  <div class="bg"></div>
+
 </body>
 </html>
